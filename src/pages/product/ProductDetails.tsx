@@ -33,7 +33,7 @@ const ProductDetails = () => {
             />
           </div>
           <div className="small-images-container">
-            {image.length > 1 &&
+            {image.length > 0 &&
               image.map((item: string, i: number) => (
                 <img
                   key={i}

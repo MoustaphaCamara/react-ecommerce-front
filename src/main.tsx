@@ -2,10 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import Layout from "./components/Layout.tsx";
+import StateContext from "../context/StateContext";
+import { Toaster } from "react-hot-toast";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Layout>
-      <App />
-    </Layout>
+    <StateContext>
+      <Layout>
+        <Toaster />
+        <App />
+      </Layout>
+    </StateContext>
   </React.StrictMode>
 );

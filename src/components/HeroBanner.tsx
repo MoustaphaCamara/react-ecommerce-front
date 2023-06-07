@@ -8,7 +8,13 @@ const HeroBanner = () => {
         <h3>MID TEXT</h3>
         <img src="" alt="headphones" className="hero-banner-image" />
         <div>
-          <NavLink to="/product/ID">hi</NavLink>
+          <NavLink to="/product/ID">
+            <button type="button">BUTTON TEXT</button>
+          </NavLink>
+          <div className="desc">
+            <h5>Description</h5>
+            <p>DESCRIPTION</p>
+          </div>
         </div>
       </div>
     </div>

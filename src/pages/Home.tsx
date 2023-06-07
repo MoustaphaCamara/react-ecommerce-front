@@ -1,14 +1,14 @@
 import FooterBanner from "../components/FooterBanner";
 import HeroBanner from "../components/HeroBanner";
-// import useFetch from "../hooks/useFetch.ts";
+import Product from "../components/Product.tsx";
+import useFetch from "../hooks/useFetch.ts";
 
-// const query = "*[_type == 'product']";
+const query = "*[_type == 'product']";
 
-const Home = () => {
-  // const { data, loading, error } = useFetch(query);
-
-  // if (error) return error;
-  // if (loading) return <p>Loading...</p>;
+const Home: React.FC = () => {
+  const { data, loading, error, Loader } = useFetch(query);
+  if (error) return error;
+  if (loading) return <Loader />;
   return (
     <>
       <HeroBanner />
@@ -16,7 +16,11 @@ const Home = () => {
         <h2>Best selling Products</h2>
         <p>Speakers of many variations</p>
       </div>
-      {/* <div className="products-container">{data?.map((item) => item.name)}</div> */}
+      <div className="products-container">
+        {data?.map((product) => (
+          <Product key={product._id} product={product} />
+        ))}
+      </div>
       <FooterBanner />
     </>
   );

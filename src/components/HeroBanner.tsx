@@ -23,12 +23,12 @@ const HeroBanner = () => {
               className="hero-banner-image"
             />
             <div>
-              <NavLink to="/product/ID">
-                <button type="button">BUTTON TEXT</button>
+              <NavLink to={`/product/${banner.product}`}>
+                <button type="button">{banner.buttonText} </button>
               </NavLink>
               <div className="desc">
                 <h5>Description</h5>
-                <p>DESCRIPTION</p>
+                <p>{banner.desc} </p>
               </div>
             </div>
           </div>

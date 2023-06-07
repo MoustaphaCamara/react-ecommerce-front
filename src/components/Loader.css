@@ -5,8 +5,8 @@
   height: 2rem;
   border-radius: 50%;
   box-sizing: border-box;
-  border-top: 6px solid white;
-  border-left: 6px solid white;
+  border-top: 6px solid red;
+  border-left: 6px solid red;
   border-right: 8px solid transparent;
   animation: loader 0.7s infinite linear;
 }

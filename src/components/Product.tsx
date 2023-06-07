@@ -14,23 +14,24 @@ interface ProductInt {
 }
 
 const Product = ({ product }: ProductInt) => {
+  const { name, image, price } = product;
+
   return (
     <div>
       <NavLink
         to={`/product/${product.slug.current}`}
         state={{ product: product }}
       >
-        {/* https://ui.dev/react-router-pass-props-to-link */}
         <div className="product-card">
           <img
-            src={urlFor(product.image && product.image[0])}
+            src={urlFor(image && image[0])}
             width={250}
             height={250}
-            alt={product.name}
+            alt={name}
             className="product-image"
           />
-          <p className="product-name">{product.name} </p>
-          <p className="product-price">{product.price} €</p>
+          <p className="product-name">{name} </p>
+          <p className="product-price">{price} €</p>
         </div>
       </NavLink>
     </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { client } from "../client";
+import Loader from "../components/Loader";
 
 export default function useFetch(query: any) {
   const [data, setData] = useState<any[]>([]);
@@ -20,5 +21,5 @@ export default function useFetch(query: any) {
     //https://usefulangle.com/post/248/javascript-async-anonymous-function-iife
   }, [query]);
 
-  return { data, error, loading };
+  return { data, error, loading, Loader };
 }

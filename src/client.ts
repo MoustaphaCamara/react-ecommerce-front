@@ -8,6 +8,6 @@ export const client = createClient({
   useCdn: true,
   token: import.meta.env.VITE_REACT_APP_SANITY_TOKEN,
 });
-const builder = imageUrlBuilder(client);
+const builder: any = imageUrlBuilder(client);
 
 export const urlFor = (source: any) => builder.image(source);

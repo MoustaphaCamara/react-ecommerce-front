@@ -39,6 +39,20 @@ export const StateContext = ({ children }: React.FC | any) => {
     toast.success(`${qtt} ${product.name} added to the cart.`);
   };
 
+  const onRemove = (product: ProductInt) => {
+    foundProduct = cartItems.find((item) => item._id === product._id);
+    const newCartItems = cartItems.filter((item) => item._id !== product._id);
+
+    setTotalPrice(
+      (prevTotalPrice) =>
+        prevTotalPrice - foundProduct.price * foundProduct.quantity
+    );
+    setTotalQuantities(
+      (prevTotalQuantities) => prevTotalQuantities - foundProduct.quantity
+    );
+    setCartItems(newCartItems);
+  };
+
   const toggleCartItemQuantity = (id: number, value: string) => {
     // to fix later : on update, latest item gets switched to bottom position
     foundProduct = cartItems.find((item) => item._id === id);
@@ -90,6 +104,7 @@ export const StateContext = ({ children }: React.FC | any) => {
         incQtt,
         decQtt,
         onAdd,
+        onRemove,
         toggleCartItemQuantity,
       }}
     >

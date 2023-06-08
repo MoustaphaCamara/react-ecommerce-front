@@ -10,6 +10,7 @@ import useFetch from "../../hooks/useFetch";
 import Product from "../../components/Product";
 import { useState } from "react";
 import { useStateContext } from "../../../context/StateContext";
+import { ProductInt } from "../../models/product";
 
 const query = "*[_type == 'product']";
 

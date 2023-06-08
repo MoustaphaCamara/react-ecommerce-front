@@ -9,10 +9,13 @@ import {
 import useFetch from "../../hooks/useFetch";
 import Product from "../../components/Product";
 import { useState } from "react";
+import { useStateContext } from "../../../context/StateContext";
+
 const query = "*[_type == 'product']";
 
 const ProductDetails = () => {
   const [index, setIndex] = useState(0);
+  const { decQtt, incQtt, qtt, onAdd }: any = useStateContext();
   const { data, loading, error, Loader } = useFetch(query);
   if (error) return error;
   if (loading) return <Loader />;
@@ -64,17 +67,21 @@ const ProductDetails = () => {
           <div className="quantity">
             <h3>Quantity:</h3>
             <p className="quantity-desc">
-              <span className="minus">
+              <span className="minus" onClick={decQtt}>
                 <AiOutlineMinus />
               </span>
-              <span className="num">0</span>
-              <span className="plus">
+              <span className="num">{qtt}</span>
+              <span className="plus" onClick={incQtt}>
                 <AiOutlinePlus />
               </span>
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart">
+            <button
+              type="button"
+              className="add-to-cart"
+              onClick={() => onAdd(product, qtt)}
+            >
               Add to Cart
             </button>
             <button type="button" className="buy-now">
@@ -87,7 +94,7 @@ const ProductDetails = () => {
         <h2>You may also like..</h2>
         <div className="marquee">
           <div className="maylike-products-container track">
-            {data?.map((product) => (
+            {data?.map((product: ProductInt) => (
               <Product key={product._id} product={product} />
             ))}
           </div>

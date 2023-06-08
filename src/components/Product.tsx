@@ -1,18 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { urlFor } from "../client";
-
-interface ProductInt {
-  product: {
-    image: string;
-    name: string;
-    slug: {
-      current: string;
-      _type: "slug";
-    };
-    price: number;
-  };
-}
-
+import { ProductInt } from "../models/product";
 const Product = ({ product }: ProductInt) => {
   const { name, image, price } = product;
 

@@ -42,7 +42,7 @@ export const StateContext = ({ children }: React.FC | any) => {
   const onRemove = (product: ProductInt) => {
     foundProduct = cartItems.find((item) => item._id === product._id);
     const newCartItems = cartItems.filter((item) => item._id !== product._id);
-
+    // 2:36
     setTotalPrice(
       (prevTotalPrice) =>
         prevTotalPrice - foundProduct.price * foundProduct.quantity

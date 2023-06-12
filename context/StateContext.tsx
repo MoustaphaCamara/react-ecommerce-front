@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { ProductInt } from "../src/models/product";
 
-const Context = createContext(null!);
+const Context = createContext<any>(null!);
 
 export const StateContext = ({ children }: React.FC | any) => {
   const [showCart, setShowCart] = useState(false);
@@ -13,7 +13,6 @@ export const StateContext = ({ children }: React.FC | any) => {
 
   // products we want to update for toggleCartItemQuantity()
   let foundProduct: ProductInt;
-  let index;
 
   const onAdd = (product: ProductInt, quantity: number) => {
     const checkIfProductInCart = cartItems.find(
@@ -56,7 +55,7 @@ export const StateContext = ({ children }: React.FC | any) => {
   const toggleCartItemQuantity = (id: number, value: string) => {
     // to fix later : on update, latest item gets switched to bottom position
     foundProduct = cartItems.find((item) => item._id === id);
-
+    let index;
     index = cartItems.findIndex((product) => product._id === id);
 
     // splice/destructure altering initial cart

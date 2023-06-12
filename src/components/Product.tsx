@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { urlFor } from "../client";
 import { ProductInt } from "../models/product";
-const Product = ({ product }: ProductInt) => {
+interface Props {
+  product: ProductInt;
+}
+const Product = ({ product }: Props) => {
   const { name, image, price } = product;
 
   return (
